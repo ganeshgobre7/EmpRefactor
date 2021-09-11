@@ -7,32 +7,41 @@ namespace EmplRefactor
     class Calculatesalary
     {
         int empPresent = 1;
-        int full_Time = 8;
-        int part_Time = 4;
-        int per_Hour_Sal = 20;
+        int empAbsent = 2;
         int one_Day_Sal = 0;
+        int per_Hour_Sal = 20;
+        int no_Of_Days = 20;
+        int total_Sal = 0;
+        int empHours = 0;
+        int total_Work_Hours = 0;
+        int day = 1;
         public void check()
         {
             Random random = new Random();
             int empCheck = random.Next(0, 3);
 
-            switch (empCheck)
+            while (day <= no_Of_Days)
             {
-                case 1:
-                    one_Day_Sal = full_Time * per_Hour_Sal;
-                    Console.WriteLine("Full time Employee ==> One Day Salary is :" + one_Day_Sal);
-                    break;
+                switch(empCheck)
+                {
+                    case 1:
+                        empHours = 8;
+                        break;
 
-                case 2:
-                    one_Day_Sal = part_Time * per_Hour_Sal;
-                    Console.WriteLine("Full time Employee ==> One Day Salary is :" + one_Day_Sal);
-                    break;
+                    case 2:
+                        empHours = 4;
+                        break;
 
-                case 3:
-                    Console.WriteLine("Employee is Absent");
-                    break;
+                    case 3:
+                        empHours = 0;
+                        break;                      
+                }
+                day++;
+                one_Day_Sal = empHours * per_Hour_Sal;
+                total_Work_Hours = empHours + total_Work_Hours;
             }
-                       
+            total_Sal = total_Work_Hours * per_Hour_Sal;
+            Console.WriteLine("Total Salary of months :" + total_Sal);
         }
     }
 }
