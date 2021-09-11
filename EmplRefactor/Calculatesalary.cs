@@ -8,6 +8,7 @@ namespace EmplRefactor
     {
         int empPresent = 1;
         int full_Time = 8;
+        int part_Time = 4;
         int per_Hour_Sal = 20;
         int one_Day_Sal = 0;
         public void check()
@@ -18,11 +19,12 @@ namespace EmplRefactor
             if (empCheck==empPresent)
             {
                 one_Day_Sal = full_Time * per_Hour_Sal;
-                Console.WriteLine("Full time employee One Day Salary is :"+ one_Day_Sal); ;
+                Console.WriteLine("Full time employee One Day Salary is :"+ one_Day_Sal); 
             }
             else
             {
-                Console.WriteLine("Employee is Absent");
+                one_Day_Sal = part_Time * per_Hour_Sal;
+                Console.WriteLine("Part time employee One Day Salary is :" + one_Day_Sal); ;
             }
         }
     }
