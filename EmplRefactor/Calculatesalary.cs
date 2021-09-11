@@ -14,13 +14,14 @@ namespace EmplRefactor
         int total_Sal = 0;
         int empHours = 0;
         int total_Work_Hours = 0;
+        int total_Max_Hours = 100;
         int day = 1;
         public void check()
         {
             Random random = new Random();
             int empCheck = random.Next(0, 3);
 
-            while (day <= no_Of_Days)
+            while (day <= no_Of_Days && total_Work_Hours<=total_Max_Hours)
             {
                 switch(empCheck)
                 {
@@ -37,11 +38,12 @@ namespace EmplRefactor
                         break;                      
                 }
                 day++;
-                one_Day_Sal = empHours * per_Hour_Sal;
+                one_Day_Sal = empHours * per_Hour_Sal;               
                 total_Work_Hours = empHours + total_Work_Hours;
             }
             total_Sal = total_Work_Hours * per_Hour_Sal;
-            Console.WriteLine("Total Salary of months :" + total_Sal);
+            Console.WriteLine("Total Salary of Months :" + total_Sal);
+            Console.WriteLine("Total Hours of Months :" + total_Work_Hours);
         }
     }
 }
