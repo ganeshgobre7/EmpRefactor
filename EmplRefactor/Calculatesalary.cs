@@ -6,22 +6,20 @@ namespace EmplRefactor
 {
     class Calculatesalary
     {
-        int empPresent = 1;
-        int empAbsent = 2;
+        
         int one_Day_Sal = 0;
         int per_Hour_Sal = 20;
-        int no_Of_Days = 20;
         int total_Sal = 0;
-        int empHours = 0;
-        int total_Work_Hours = 0;
-        int total_Max_Hours = 100;
-        int day = 1;
-        public void check()
+        int empHours = 0;       
+             
+        public void check(int max_Work_Days, int max_Work_Hours, string comp_Name)
         {
+            int day = 1;
+            int total_Work_Hours = 0;
             Random random = new Random();
             int empCheck = random.Next(0, 3);
 
-            while (day <= no_Of_Days && total_Work_Hours<=total_Max_Hours)
+            while (day <= max_Work_Days && total_Work_Hours<=max_Work_Hours)
             {
                 switch(empCheck)
                 {
@@ -41,9 +39,11 @@ namespace EmplRefactor
                 one_Day_Sal = empHours * per_Hour_Sal;               
                 total_Work_Hours = empHours + total_Work_Hours;
             }
+            Console.WriteLine();
             total_Sal = total_Work_Hours * per_Hour_Sal;
-            Console.WriteLine("Total Salary of Months :" + total_Sal);
-            Console.WriteLine("Total Hours of Months :" + total_Work_Hours);
+            Console.WriteLine("Company Name is :" + comp_Name);
+            Console.WriteLine("Total Wage For A Month is :" + total_Sal);
+            Console.WriteLine("Total Working Hours in Month is:" + total_Work_Hours);
         }
     }
 }
