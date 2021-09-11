@@ -14,18 +14,25 @@ namespace EmplRefactor
         public void check()
         {
             Random random = new Random();
-            int empCheck = random.Next(0, 2);
-            
-            if (empCheck==empPresent)
+            int empCheck = random.Next(0, 3);
+
+            switch (empCheck)
             {
-                one_Day_Sal = full_Time * per_Hour_Sal;
-                Console.WriteLine("Full time employee One Day Salary is :"+ one_Day_Sal); 
+                case 1:
+                    one_Day_Sal = full_Time * per_Hour_Sal;
+                    Console.WriteLine("Full time Employee ==> One Day Salary is :" + one_Day_Sal);
+                    break;
+
+                case 2:
+                    one_Day_Sal = part_Time * per_Hour_Sal;
+                    Console.WriteLine("Full time Employee ==> One Day Salary is :" + one_Day_Sal);
+                    break;
+
+                case 3:
+                    Console.WriteLine("Employee is Absent");
+                    break;
             }
-            else
-            {
-                one_Day_Sal = part_Time * per_Hour_Sal;
-                Console.WriteLine("Part time employee One Day Salary is :" + one_Day_Sal); ;
-            }
+                       
         }
     }
 }
